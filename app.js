@@ -11,7 +11,7 @@ const mapArr = require("./lib/mapArr");
 
 function init() {
     function createManager() {
-
+// Manager Questions
         const questions = generateQuestions("Manager")
 
         return inquirer.prompt(questions)
@@ -21,7 +21,7 @@ function init() {
                 choose();
             })
     };
-
+// Employee Questions
     function choose() {
         const chooseEmployee = [{
             type: "input",
@@ -156,16 +156,7 @@ function init() {
         }
         return questions;
     }
-
-    function createEngineer() {
-        const questions = generateQuestions("Engineer")
-        return inquirer.prompt(questions)
-            .then(function(answers) {
-                choose()
-                const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-                employeeArr.push(newEngineer);
-            })
-    };
+    
     function createIntern() {
         const questions = generateQuestions("Intern")
 
@@ -176,6 +167,17 @@ function init() {
                 employeeArr.push(newIntern);
             })
     };
+
+    function createEngineer() {
+        const questions = generateQuestions("Engineer")
+        return inquirer.prompt(questions)
+            .then(function(answers) {
+                choose()
+                const newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+                employeeArr.push(newEngineer);
+            })
+    };
+    
     createManager();
 };
 init();

@@ -1,8 +1,8 @@
 const inquirer = require("inquirer");
 const jest = require("jest");
-const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
+const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
 const generateHTML = require("./lib/generateHTML");
 const fs = require("fs");
@@ -62,7 +62,7 @@ function init() {
             })
     }
 
-    function generateQuestions(employeeType) {
+    function generateQuestions(employee) {
         const questions = [{
                 type: "input",
                 name: "name",
@@ -143,7 +143,7 @@ function init() {
                 }
             }
         }
-        switch (employeeType) {
+        switch (employee) {
             case "Engineer":
                 questions.push(EngineerQuestion);
                 break;
